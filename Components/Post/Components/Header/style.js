@@ -12,5 +12,6 @@ export const styles = StyleSheet.create({
         padding:10,
         fontWeight:"900",
         color:"#3c3c3c",
+        fontFamily:"Roboto-Bold",
     }
 })
