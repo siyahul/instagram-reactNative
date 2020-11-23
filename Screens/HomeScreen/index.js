@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text,StyleSheet } from 'react-native'
 import Feeds from '../../Components/Feeds'
 
-
 const HomeScreen = () => {
     return (
         <View style={style.homeScreen}>

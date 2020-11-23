@@ -1,9 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import HomeScreen from "./Screens/HomeScreen";
+import { Platform, SafeAreaView, StyleSheet} from "react-native";
 import { AppLoading } from "expo";
 import { useFonts } from "expo-font";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import Routes from "./Routes";
+
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -14,10 +18,12 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <SafeAreaView style={styles.container}>
-        <HomeScreen />
-        <StatusBar style="auto" />
-      </SafeAreaView>
+      <NavigationContainer>
+        <SafeAreaView style={styles.container}>
+          <Routes />
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </NavigationContainer>
     );
   }
 }
