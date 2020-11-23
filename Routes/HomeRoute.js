@@ -3,9 +3,20 @@ import React from "react";
 import { Image, View } from "react-native";
 import HomeScreen from "../Screens/HomeScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Message from "../Screens/Message";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+import Discovery from "../Components/Discovery";
 
 const Stack = createStackNavigator();
 const HomeRoute = () => {
+  const navigation = useNavigation();
+  const goToMessages = () => {
+    navigation.navigate("Messages")
+  }
+  const goToDiscovery = () => {
+    navigation.navigate("Discovery")
+  }
   return (
       <Stack.Navigator>
         <Stack.Screen
@@ -27,16 +38,24 @@ const HomeRoute = () => {
             ),
             headerRight: () => (
               <View style={{ flexDirection: "row" }}>
-                <View style={{ paddingHorizontal: 10 }}>
+                <TouchableWithoutFeedback onPress={goToDiscovery} style={{ paddingHorizontal: 10 }}>
                   <Ionicons name="md-search" size={24} color="black" />
-                </View>
-                <View style={{ paddingHorizontal: 10 }}>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={goToMessages} style={{ paddingHorizontal: 10 }}>
                   <Ionicons name="ios-paper-plane" size={24} color="black" />
-                </View>
+                </TouchableWithoutFeedback>
               </View>
             ),
           }}
           component={HomeScreen}
+        />
+        <Stack.Screen
+        name="Messages"
+        component={Message}
+        />
+        <Stack.Screen
+        name="Discovery"
+        component={Discovery}
         />
       </Stack.Navigator>
     );
