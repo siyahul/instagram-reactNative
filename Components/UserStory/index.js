@@ -11,6 +11,9 @@ import { StatusBar } from "expo-status-bar";
 import storyData from "../../Datas/story";
 import styles from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
+import ProfilePicture from "../ProfilePicture";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
 const UserStory = ({ navigation }) => {
   const route = useRoute();
@@ -46,7 +49,12 @@ const UserStory = ({ navigation }) => {
 
       const nextUserId = storyData[indexOfNextUser].user.id;
 
-      return navigation.setParams({ userId: nextUserId });
+      if(nextUserId !== userStories.user.id){
+        navigation.setParams({ userId: nextUserId });
+      }
+      else{
+        navigation.goBack();
+      }
     } else setActiveStoryIndex(activeStoryIndex + 1);
   }
   const prevStory = () => {
@@ -58,7 +66,6 @@ const UserStory = ({ navigation }) => {
 
       const prevUserId = storyData[indexOfPrevUser].user.id;
       return navigation.setParams({ userId: prevUserId });
-      
     } else setActiveStoryIndex(activeStoryIndex - 1);
   };
 
@@ -85,7 +92,22 @@ const UserStory = ({ navigation }) => {
           source={{ uri: activeStory?.imageUri }}
           imageStyle={{ borderRadius: 10 }}
           style={styles.image}
-        />
+        >
+          <View style={styles.head}>
+            <View style={styles.userInfo}>
+              <ProfilePicture
+                uri={userStories?.user?.photoUrl}
+                size={"medium"}
+                visited={true}
+              />
+              <Text style={styles.name}>{userStories?.user?.name}</Text>
+              <Text style={styles.timeInfo}>{activeStory?.postedAt}</Text>
+            </View>
+            <View style={styles.userInfo}>
+              <FontAwesomeIcon icon={faEllipsisV} size={16} color={"white"} />
+            </View>
+          </View>
+        </ImageBackground>
       </TouchableWithoutFeedback>
       <StatusBar style="auto" />
     </SafeAreaView>

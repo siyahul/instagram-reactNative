@@ -33,5 +33,20 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius:45,
+  },
+  gradientMedium:{
+    height: 48,
+    width:48,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius:26,
+  },
+  medium:{
+    height: 45,
+    width: 45,
+    borderRadius: 25,
+    borderWidth:1,
+    borderColor:"white",
+    backgroundColor:"white",
   }
 });
