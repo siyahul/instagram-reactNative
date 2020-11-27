@@ -5,13 +5,20 @@ const ProgressBar = ({render,render2}) => {
   const anim = useRef(new Animated.Value(0)).current;
   const anim2 = useRef(new Animated.Value(0)).current;
   const [width, setWidth] = useState(0);
-
+  const progress = Animated.timing(anim, {
+    toValue: anim2,
+    duration: 5000,
+    useNativeDriver: true,
+  })
   useEffect(() => {
-    Animated.timing(anim, {
-      toValue: anim2,
-      duration: 5000,
-      useNativeDriver: true,
-    }).start();
+    progress.start();
+    const time = setTimeout(() => {
+      progress.stop();
+    },2000)
+
+    return ()=>{
+      clearTimeout(time);
+    }
   }, [render,render2]);
 
   useEffect(() => {
