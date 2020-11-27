@@ -38,6 +38,7 @@ const BottomHomeNavigator = () => {
       }}
     >
       <Tab.Screen name="Home" component={HomeStack} />
+      {/* all others screens beyond this line needs to devolop */}
       <Tab.Screen name="DiscoveryScreen" component={DiscoveryScreen} />
       <Tab.Screen name="Add" component={Message} />
       <Tab.Screen name="Notification" component={Message} />

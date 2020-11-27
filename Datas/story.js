@@ -1,5 +1,6 @@
-const data = [
+export const data = [
   {
+    visited: false,
     user: {
       id: "1",
       photoUrl:
@@ -19,12 +20,16 @@ const data = [
         postedAt: "24m",
         viewers: [],
       },
-
-      
-     
+      {
+        imageUri:
+          "https://scontent-maa2-1.xx.fbcdn.net/v/t31.0-8/26232707_1556129151172442_5611623108210594864_o.jpg?_nc_cat=109&ccb=2&_nc_sid=174925&_nc_ohc=mAD26AE1uXAAX8OiABx&_nc_ht=scontent-maa2-1.xx&oh=c7cca9dfb2bf1ebce9cf9f42ef8bffa7&oe=5FE1E6C2",
+        postedAt: "26m",
+        viewers: [],
+      },
     ],
   },
   {
+    visited: false,
     user: {
       id: "2",
       photoUrl:
@@ -41,6 +46,7 @@ const data = [
     ],
   },
   {
+    visited: false,
     user: {
       id: "3",
       photoUrl:
@@ -57,6 +63,7 @@ const data = [
     ],
   },
   {
+    visited: false,
     user: {
       id: "4",
       photoUrl:
@@ -73,6 +80,7 @@ const data = [
     ],
   },
   {
+    visited: false,
     user: {
       id: "5",
       photoUrl:
@@ -89,6 +97,7 @@ const data = [
     ],
   },
   {
+    visited: false,
     user: {
       id: "6",
       photoUrl:

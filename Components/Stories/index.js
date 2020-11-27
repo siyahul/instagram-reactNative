@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { View, FlatList } from "react-native";
 import Story from "../Story";
 import { styles } from "./styles";
-import storyData from "../../Datas/story";
+import { useSelector } from "react-redux";
 const Stories = () => {
-  const [datas, setDatas] = useState(storyData);
+  const {data} = useSelector((state) => state.stories);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={datas}
+        data={data}
         keyExtractor={(item, index) => String(index)}
         horizontal
         showsVerticalScrollIndicator={false}
@@ -21,6 +21,7 @@ const Stories = () => {
               url={item?.user?.photoUrl}
               index={index}
               id={item?.user?.id}
+              visited={item?.visited}
             />
           );
         }}

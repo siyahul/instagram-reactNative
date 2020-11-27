@@ -41,6 +41,33 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius:26,
   },
+  viewSmall:{
+    height: 34,
+    width:34,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius:17,
+    borderWidth:1,
+    borderColor:'lightgray'
+  },
+  view:{
+    height: 70,
+    width:70,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius:45,
+    borderWidth:1,
+    borderColor:'lightgray'
+  },
+  viewMedium:{
+    height: 48,
+    width:48,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius:26,
+    borderWidth:1,
+    borderColor:'lightgray'
+  },
   medium:{
     height: 45,
     width: 45,

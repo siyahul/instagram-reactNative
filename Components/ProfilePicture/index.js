@@ -37,7 +37,17 @@ const ProfilePicture = ({ uri, size, visited }) => {
           {uri ? image : <View style={styles.image} />}
         </LinearGradient>
       ) : (
-        <>{uri ? image : <View style={styles.image} />}</>
+        <View
+          style={
+            size === "small"
+              ? styles.viewSmall
+              : size === "medium"
+              ? styles.viewMedium
+              : styles.view
+          }
+        >
+          {uri ? image : <View style={styles.image} />}
+        </View>
       )}
     </View>
   );
